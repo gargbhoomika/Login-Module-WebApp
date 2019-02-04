@@ -9,12 +9,11 @@ import javax.servlet.http.HttpSession;
 
 @WebServlet("/Logout")
 
-public class Logout extends HttpServlet
-{
-	protected void doGet(HttpServletRequest request, HttpServletResponse response)
-	{
+public class Logout extends HttpServlet{
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException{
 		HttpSession session = request.getSession();
 		session.removeAttribute("username");
 		session.invalidate();
+		response.sendRedirect("login.jsp");
 	}
 }
